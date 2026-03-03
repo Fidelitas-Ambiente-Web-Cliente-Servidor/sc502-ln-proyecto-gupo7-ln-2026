@@ -1,0 +1,98 @@
+
+/*inicialicacion de la pagina*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #196e96;
+    color: white;
+}
+
+
+.header {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.logo h2 {
+    color: #f4b400;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li {
+    margin-left: 25px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: #1b1b1b;
+}
+
+
+.texto-principal {
+    margin-left: 40px;
+}
+
+.texto-principal h1 {
+    margin-bottom: 20px;
+    color: #f4b400;
+}
+
+
+.blog {
+    padding: 40px;
+}
+
+.blog h2 {
+    margin-bottom: 20px;
+}
+
+.contenedor-blog {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 23%;
+    background-color: #1b1b1b;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.blog .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.footer {
+    background-color: #000;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+
+}

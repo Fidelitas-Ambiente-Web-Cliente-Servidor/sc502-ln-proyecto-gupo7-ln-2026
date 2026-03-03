@@ -1,0 +1,21 @@
+body {
+    background-color: #f4f7f6;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #2d5a27 !important;
+}
+
+.navbar .nav-link,
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    color: #d4edda !important;
+}
+
+h1 {
+    font-weight: bold;
+}

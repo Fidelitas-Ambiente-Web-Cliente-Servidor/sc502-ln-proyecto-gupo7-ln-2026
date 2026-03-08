@@ -5,44 +5,42 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
   let nombre = document.getElementById("nombre").value.trim();
   let monto = document.getElementById("monto").value.trim();
   let fecha = document.getElementById("fecha").value;
-  let tipoPago = document.getElementById("tipoPago").value;
-  let numeroTarjeta = document.getElementById("numeroTarjeta") ? document.getElementById("numeroTarjeta").value.trim() : "";
+  let tipoDonacion = document.getElementById("tipoDonacion").value;
+  let donativo = document.getElementById("Donativo") ? document.getElementById("Donativo").value.trim() : "";
 
+  // Limpiar errores
   document.getElementById("errorNombre").textContent = "";
   document.getElementById("errorMonto").textContent = "";
   document.getElementById("errorFecha").textContent = "";
-  document.getElementById("errorTipoPago").textContent = "";
+  document.getElementById("errortipoDonacion").textContent = "";
   if (document.getElementById("errorTarjeta")) {
     document.getElementById("errorTarjeta").textContent = "";
   }
 
-
+  // Validaciones
   if (nombre === "") {
     document.getElementById("errorNombre").textContent = "El nombre es obligatorio.";
     valido = false;
   }
-
 
   if (monto === "" || isNaN(monto) || parseFloat(monto) <= 0) {
     document.getElementById("errorMonto").textContent = "Debe ingresar un monto válido mayor a 0.";
     valido = false;
   }
 
-  if (!tipoPago) {
-    document.getElementById("errorTipoPago").textContent = "Debe seleccionar un método de pago.";
+  if (!tipoDonacion) {
+    document.getElementById("errortipoDonacion").textContent = "Debe seleccionar un tipo de donación.";
     valido = false;
   }
 
-  if (tipoPago === "tarjeta") {
-    if (numeroTarjeta === "") {
-      document.getElementById("errorTarjeta").textContent = "Debe ingresar el número de tarjeta.";
-      valido = false;
-    } else if (!/^\d{16}$/.test(numeroTarjeta.replace(/\s|-/g, ""))) {
-      document.getElementById("errorTarjeta").textContent = "El número de tarjeta debe tener 16 dígitos.";
+  if (tipoDonacion === "Otro") {
+    if (donativo === "") {
+      document.getElementById("errorTarjeta").textContent = "Debe especificar el donativo.";
       valido = false;
     }
   }
 
+  // Mensaje final
   if (valido) {
     setTimeout(() => {
       let mensajeFinal = document.getElementById("mensajeFinal");
@@ -62,23 +60,14 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
   }
 });
 
+// Mostrar/ocultar campo "Otro"
+const tipoDonacionSelect = document.getElementById("tipoDonacion");
+const campoOtro = document.getElementById("campoOtro");
 
-const tipoPagoSelect = document.getElementById("tipoPago");
-const campoTarjeta = document.getElementById("campoTarjeta");
-
-tipoPagoSelect.addEventListener("change", function() {
-  if (this.value === "tarjeta") {
-    campoTarjeta.style.display = "block";
+tipoDonacionSelect.addEventListener("change", function() {
+  if (this.value === "Otro") {
+    campoOtro.style.display = "block";
   } else {
-    campoTarjeta.style.display = "none";
+    campoOtro.style.display = "none";
   }
-
-
-  tipoDonacionSelect.addEventListener("change", function() {
-  if (this.value === "tarjeta") {
-    campoTarjeta.style.display = "block";
-  } else {
-    campoTarjeta.style.display = "none";
-  }
-
 });

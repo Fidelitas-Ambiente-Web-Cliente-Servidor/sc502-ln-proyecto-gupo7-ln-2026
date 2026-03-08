@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventos | Vida Rescate</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/donar2.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#">Vida Rescate Atenas</a>
+
+<div class="collapse navbar-collapse">
+<ul class="navbar-nav ms-auto align-items-center">
+<li class="nav-item"><a class="nav-link" href="principal.html">Inicio</a></li>
+<li class="nav-item"><a class="nav-link" href="adoptar1.html">Adoptar</a></li>
+<li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadísticas</a></li>
+<li class="nav-item"><a class="nav-link" href="crear.html">Registrar</a></li>
+<li class="nav-item"><a class="nav-link" href="donar1.html">Donaciones</a></li>
+<li class="nav-item">
+<button class="btn btn-danger ms-3" onclick="cerrarSesion()">Cerrar Sesión</button>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+
+<div>
+    <a href="principal.html" class="btn btn-secondary me-2">
+        ⬅ Volver al Inicio
+    </a>
+
+    <button class="btn btn-danger" onclick="cerrarSesion()">
+        Cerrar Sesión
+    </button>
+</div>
+
+</div>
+</nav>
+
+<div class="secciones">
+  <!-- izquierda -->
+  <div class="descripcion">
+    <h2>Donaciones de Dinero</h2>
+    <img src="imagenes/donaciones_dinero.jpg"  class="img-fluid">
+    <p>
+        Muchas gracias, con tu aporte podremos llevar esperanzas a mas animales. 
+    </p>
+  </div>
+
+  <!-- derecha -->
+<div class="form-donaciones_monetarias">
+  <h2>Formulario de donaciones</h2>
+  <p>Por favor rellenar el siguiente formulario</p>
+
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" placeholder="Escribe tu nombre">
+  <div id="errorNombre" class="error"></div>
+
+  <label for="monto">Ingrese el monto a donar en colones:</label>
+  <input type="number" id="monto">
+  <div id="errorMonto" class="error"></div>
+
+   <label for="fecha">Fecha de visita:</label>
+   <input type="date" id="fecha">
+   <div id="errorFecha" class="error"></div>
+   <script>
+   document.addEventListener("DOMContentLoaded", () => {
+    const fechaInput = document.getElementById("fecha");
+    const hoy = new Date().toISOString().split("T")[0]; 
+    fechaInput.value = hoy;   
+    fechaInput.min = hoy;   
+   });
+   </script>
+
+  <label for="tipoPago">Tipo de pago:</label>
+  <select id="tipoPago">
+    <option value="" disabled selected>Seleccione un método</option>
+    <option value="efectivo">Efectivo</option>
+    <option value="tarjeta">Tarjeta</option>
+    <option value="transferencia">Transferencia</option>
+  </select>
+  <div id="errorTipoPago" class="error"></div>
+
+  <div id="campoTarjeta" style="display:none;">
+    <label for="numeroTarjeta">Número de tarjeta:</label>
+    <input type="text" id="numeroTarjeta" placeholder="XXXX-XXXX-XXXX-XXXX">
+    <div id="errorTarjeta" class="error"></div>
+  </div>
+
+  <button>Donar</button>
+</div>
+
+<script src="js/donar.js"></script>
+</body>
+</html>

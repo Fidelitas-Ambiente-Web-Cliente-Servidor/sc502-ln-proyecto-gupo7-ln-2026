@@ -22,9 +22,8 @@
   margin: 0 auto 15px;  
 }
 
-
-/* Sección derecha */
-.form-adopcion {
+/* Sección derecha: formulario de donaciones */
+.form-donaciones_monetarias {
   flex: 1;
   background: #f9f9f9;
   padding: 30px;
@@ -32,44 +31,53 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.form-adopcion label {
+.form-donaciones_monetarias h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.form-donaciones_monetarias p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.form-donaciones_monetarias label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
   color: #444;
 }
 
-.form-adopcion input {
+.form-donaciones_monetarias input,
+.form-donaciones_monetarias select {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px; 
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 14px;
+  background-color: #fff;
 }
 
-.form-adopcion .error {
+.form-donaciones_monetarias .error {
   font-size: 0.9em;
   color: #d9534f;
   margin-top: -10px;
   margin-bottom: 15px; 
 }
 
-
-/* Reutiliza estilos de .form-adopcion input */
-.dropbtn {
+/* Botón Donar */
+.form-donaciones_monetarias button {
   background-color: #3498db;
   color: white;
   padding: 10px;
   font-size: 14px;
   border: none;
-  border-radius: 5px;   /* igual que tus inputs */
+  border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 20px;  /* mismo espacio que los inputs */
-  width: 100%;          /* coherente con el formulario */
+  width: 100%;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  width: 100%;
+.form-donaciones_monetarias button:hover {
+  background-color: #217dbb;
 }

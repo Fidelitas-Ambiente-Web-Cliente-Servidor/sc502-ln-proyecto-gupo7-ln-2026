@@ -74,11 +74,6 @@ tipoPagoSelect.addEventListener("change", function() {
   }
 
 
-  tipoDonacionSelect.addEventListener("change", function() {
-  if (this.value === "tarjeta") {
-    campoTarjeta.style.display = "block";
-  } else {
-    campoTarjeta.style.display = "none";
-  }
+  
 
 });

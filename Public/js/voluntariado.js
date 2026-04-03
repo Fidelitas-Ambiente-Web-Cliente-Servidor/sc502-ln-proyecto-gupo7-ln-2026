@@ -1,20 +1,22 @@
+function cerrarSesion() {
+    window.location.href = "../../logout.php";
+}
+
 let boton = document.querySelector(".form-voluntariado button");
 
 if (boton) {
-
     boton.addEventListener("click", (e) => {
-
         e.preventDefault();
-
         let valido = true;
 
-        let nombre = document.getElementById("nombre").value.trim();
-        let telefono = document.getElementById("telefono").value.trim();
-        let correo = document.getElementById("correo").value.trim();
+        let nombre    = document.getElementById("nombre").value.trim();
+        let telefono  = document.getElementById("telefono").value.trim();
+        let correo    = document.getElementById("correo").value.trim();
+        let tipo      = document.querySelector(".form-voluntariado h2") ? document.querySelector(".form-voluntariado h2").textContent : "General";
 
-        document.getElementById("errorNombre").textContent = "";
+        document.getElementById("errorNombre").textContent   = "";
         document.getElementById("errorTelefono").textContent = "";
-        document.getElementById("errorCorreo").textContent = "";
+        document.getElementById("errorCorreo").textContent   = "";
 
         if (nombre === "") {
             document.getElementById("errorNombre").textContent = "El nombre es obligatorio.";
@@ -32,45 +34,36 @@ if (boton) {
         }
 
         if (valido) {
-
-            setTimeout(() => {
-
-                let mensajeFinal = document.getElementById("mensajeFinal");
-
-                if (!mensajeFinal) {
-                    mensajeFinal = document.createElement("div");
-                    mensajeFinal.id = "mensajeFinal";
-                    document.querySelector(".form-voluntariado").appendChild(mensajeFinal);
+            fetch("../../controllers/VoluntarioController.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "nombre=" + encodeURIComponent(nombre) +
+                      "&telefono=" + encodeURIComponent(telefono) +
+                      "&correo=" + encodeURIComponent(correo) +
+                      "&tipo_voluntariado=" + encodeURIComponent(tipo)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert(data.mensaje);
+                    document.getElementById("nombre").value   = "";
+                    document.getElementById("telefono").value = "";
+                    document.getElementById("correo").value   = "";
+                } else {
+                    alert(data.mensaje);
                 }
-
-                mensajeFinal.textContent = "Enviando datos... Registro completado.";
-                mensajeFinal.className = "Exito";
-
-                setTimeout(() => {
-                    mensajeFinal.textContent = "Datos enviados al sistema de voluntarios.";
-                }, 2000);
-
-            }, 2000);
-
+            })
+            .catch(error => console.log(error));
         }
-
     });
-
 }
 
-
-// Interacción imágenes voluntariado
-
 let imagenes = document.querySelectorAll(".card img");
-
-imagenes.forEach(function (img) {
-
-    img.addEventListener("mouseenter", function () {
+imagenes.forEach(function(img) {
+    img.addEventListener("mouseenter", function() {
         img.style.transform = "scale(1.08)";
     });
-
-    img.addEventListener("mouseleave", function () {
+    img.addEventListener("mouseleave", function() {
         img.style.transform = "scale(1)";
     });
-
 });

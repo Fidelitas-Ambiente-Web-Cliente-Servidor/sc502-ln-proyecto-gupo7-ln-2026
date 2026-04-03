@@ -1,13 +1,11 @@
-if(!localStorage.getItem("sesionActiva")){
-    window.location.href = "login.html";
+function cerrarSesion() {
+    window.location.href = "../../logout.php";
 }
 
-let eventos = JSON.parse(localStorage.getItem("eventos")) || [];
-
-document.getElementById("totalEventos").innerText =
-    "Total de eventos registrados: " + eventos.length;
-
-function cerrarSesion(){
-    localStorage.removeItem("sesionActiva");
-    window.location.href = "login.html";
-}
+fetch("../../controllers/EventoController.php?accion=listar")
+.then(response => response.json())
+.then(data => {
+    document.getElementById("totalEventos").innerText =
+        "Total de eventos registrados: " + data.length;
+})
+.catch(error => console.log(error));

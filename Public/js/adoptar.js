@@ -1,5 +1,8 @@
-document.querySelector(".form-adopcion button").addEventListener("click", (e) => {
-    e.preventDefault();
+function cerrarSesion() {
+    window.location.href = "../logout.php";
+}
+
+document.getElementById("btnAgendar").addEventListener("click", function() {
     let valido = true;
 
     let nombre  = document.getElementById("nombre").value.trim();
@@ -30,22 +33,23 @@ document.querySelector(".form-adopcion button").addEventListener("click", (e) =>
     }
 
     if (valido) {
-        fetch("../controllers/AdopcionController.php", {
+        fetch("../index.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "nombre=" + encodeURIComponent(nombre) +
+            body: "option=adopcion" +
+                  "&nombre=" + encodeURIComponent(nombre) +
                   "&mascota=" + encodeURIComponent(mascota) +
                   "&fecha=" + encodeURIComponent(fecha)
         })
         .then(response => response.json())
         .then(data => {
-            if (data.ok) {
-                alert(data.mensaje);
+            if (data.response == "00") {
+                alert(data.message);
                 document.getElementById("nombre").value  = "";
                 document.getElementById("mascota").value = "";
                 document.getElementById("fecha").value   = "";
             } else {
-                alert(data.mensaje);
+                alert(data.message);
             }
         })
         .catch(error => console.log(error));

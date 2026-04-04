@@ -9,35 +9,34 @@ class DonacionController {
         $tipo_pago = $_POST["tipo_pago"] ?? "";
 
         if ($nombre == "" || $monto == "" || $fecha == "" || $tipo_pago == "") {
-            echo json_encode(["ok" => false, "mensaje" => "Todos los campos son obligatorios."]);
+            echo json_encode(["response" => "01", "message" => "Todos los campos son obligatorios."]);
             return;
         }
 
         $model = new Donacion();
         if ($model->guardarMonetaria($nombre, $monto, $fecha, $tipo_pago)) {
-            echo json_encode(["ok" => true, "mensaje" => "Donacion registrada correctamente."]);
+            echo json_encode(["response" => "00", "message" => "Donacion registrada correctamente."]);
         } else {
-            echo json_encode(["ok" => false, "mensaje" => "Error al guardar."]);
+            echo json_encode(["response" => "01", "message" => "Error al guardar."]);
         }
     }
 
     public function guardarOtro() {
-        $nombre         = $_POST["nombre"]         ?? "";
-        $cantidad       = $_POST["cantidad"]       ?? "";
-        $tipo_donacion  = $_POST["tipo_donacion"]  ?? "";
-        $fecha          = $_POST["fecha"]          ?? "";
+        $nombre        = $_POST["nombre"]        ?? "";
+        $cantidad      = $_POST["cantidad"]      ?? "";
+        $tipo_donacion = $_POST["tipo_donacion"] ?? "";
+        $fecha         = $_POST["fecha"]         ?? "";
 
         if ($nombre == "" || $cantidad == "" || $tipo_donacion == "") {
-            echo json_encode(["ok" => false, "mensaje" => "Todos los campos son obligatorios."]);
+            echo json_encode(["response" => "01", "message" => "Todos los campos son obligatorios."]);
             return;
         }
 
         $model = new Donacion();
         if ($model->guardarOtro($nombre, $cantidad, $tipo_donacion, $fecha)) {
-            echo json_encode(["ok" => true, "mensaje" => "Donacion registrada correctamente."]);
+            echo json_encode(["response" => "00", "message" => "Donacion registrada correctamente."]);
         } else {
-            echo json_encode(["ok" => false, "mensaje" => "Error al guardar."]);
+            echo json_encode(["response" => "01", "message" => "Error al guardar."]);
         }
     }
 }
-

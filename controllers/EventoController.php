@@ -8,15 +8,15 @@ class EventoController {
         $fecha       = $_POST["fecha"]       ?? "";
 
         if ($titulo == "" || $descripcion == "" || $fecha == "") {
-            echo json_encode(["ok" => false, "mensaje" => "Todos los campos son obligatorios."]);
+            echo json_encode(["response" => "01", "message" => "Todos los campos son obligatorios."]);
             return;
         }
 
         $model = new Evento();
         if ($model->guardar($titulo, $descripcion, $fecha)) {
-            echo json_encode(["ok" => true, "mensaje" => "Evento guardado correctamente."]);
+            echo json_encode(["response" => "00", "message" => "Evento guardado correctamente."]);
         } else {
-            echo json_encode(["ok" => false, "mensaje" => "Error al guardar."]);
+            echo json_encode(["response" => "01", "message" => "Error al guardar."]);
         }
     }
 
@@ -25,4 +25,3 @@ class EventoController {
         echo json_encode($model->obtenerTodos());
     }
 }
-

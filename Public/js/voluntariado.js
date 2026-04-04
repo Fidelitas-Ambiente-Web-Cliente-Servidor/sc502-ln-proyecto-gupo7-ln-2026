@@ -2,11 +2,10 @@ function cerrarSesion() {
     window.location.href = "../logout.php";
 }
 
-let boton = document.querySelector(".form-voluntariado button");
+let boton = document.getElementById("btnEnviar");
 
 if (boton) {
-    boton.addEventListener("click", (e) => {
-        e.preventDefault();
+    boton.addEventListener("click", function() {
         let valido = true;
 
         let nombre   = document.getElementById("nombre").value.trim();
@@ -34,23 +33,24 @@ if (boton) {
         }
 
         if (valido) {
-            fetch("../controllers/VoluntarioController.php", {
+            fetch("../index.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: "nombre=" + encodeURIComponent(nombre) +
+                body: "option=voluntario" +
+                      "&nombre=" + encodeURIComponent(nombre) +
                       "&telefono=" + encodeURIComponent(telefono) +
                       "&correo=" + encodeURIComponent(correo) +
                       "&tipo_voluntariado=" + encodeURIComponent(tipo)
             })
             .then(response => response.json())
             .then(data => {
-                if (data.ok) {
-                    alert(data.mensaje);
+                if (data.response == "00") {
+                    alert(data.message);
                     document.getElementById("nombre").value   = "";
                     document.getElementById("telefono").value = "";
                     document.getElementById("correo").value   = "";
                 } else {
-                    alert(data.mensaje);
+                    alert(data.message);
                 }
             })
             .catch(error => console.log(error));

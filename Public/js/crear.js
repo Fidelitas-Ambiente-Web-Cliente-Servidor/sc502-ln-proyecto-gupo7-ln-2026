@@ -1,30 +1,30 @@
-if(!localStorage.getItem("sesionActiva")){
-    window.location.href = "login.html";
+function cerrarSesion() {
+    window.location.href = "../logout.php";
 }
 
-document.getElementById("eventoForm").addEventListener("submit", function(e){
+document.getElementById("eventoForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    let titulo = document.getElementById("titulo").value;
+    let titulo      = document.getElementById("titulo").value;
     let descripcion = document.getElementById("descripcion").value;
-    let fecha = document.getElementById("fecha").value;
+    let fecha       = document.getElementById("fecha").value;
 
-    let eventos = JSON.parse(localStorage.getItem("eventos")) || [];
-
-    eventos.push({
-        titulo: titulo,
-        descripcion: descripcion,
-        fecha: fecha
-    });
-
-    localStorage.setItem("eventos", JSON.stringify(eventos));
-
-    alert("Evento guardado correctamente");
-
-    window.location.href = "eventos.html";
+    fetch("../controllers/EventoController.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "accion=guardar" +
+              "&titulo=" + encodeURIComponent(titulo) +
+              "&descripcion=" + encodeURIComponent(descripcion) +
+              "&fecha=" + encodeURIComponent(fecha)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert(data.mensaje);
+            window.location.href = "eventos.html";
+        } else {
+            alert(data.mensaje);
+        }
+    })
+    .catch(error => console.log(error));
 });
-
-function cerrarSesion(){
-    localStorage.removeItem("sesionActiva");
-    window.location.href = "login.html";
-}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Principal | Vida Rescate</title>
+<title>Adoptar | Vida Rescate</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/principal.css">
@@ -18,14 +18,11 @@
 <div class="collapse navbar-collapse">
 <ul class="navbar-nav ms-auto align-items-center">
 <li class="nav-item"><a class="nav-link" href="principal.html">Inicio</a></li>
-<li class="nav-item"><a class="nav-link" href="adoptar1.html">Adoptar</a></li>
+<li class="nav-item"><a class="nav-link active" href="adoptar1.html">Adoptar</a></li>
 <li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadísticas</a></li>
 <li class="nav-item"><a class="nav-link" href="crear.html">Registrar</a></li>
-<<<<<<< HEAD
 <li class="nav-item"><a class="nav-link" href="donar1.html">Donaciones</a></li>
-=======
 <li class="nav-item"><a class="nav-link" href="voluntariado.html">Voluntariado</a></li>
->>>>>>> 35371c7219312992c830c1329973cf82964ac8f5
 <li class="nav-item">
 <button class="btn btn-danger ms-3" onclick="cerrarSesion()">Cerrar Sesión</button>
 </li>
@@ -35,59 +32,75 @@
 </nav>
 
 <section class="container mt-5 pt-5 text-center">
-<h1 class="mt-5">Seccion de Adoptar</h1>
-<p>Animales Disponibles</p>
+<h1 class="mt-5">Sección de Adoptar</h1>
+<p>Animales Disponibles en nuestro refugio</p>
 </section>
 
 <section class="info">
-    
+
     <div class="card">
         <a href="adoptar2.html">
         <img src="imagenes/luna.jpg" alt="Foto de Luna" class="card-img">
         </a>
         <h2>Luna</h2>
         <p>
-            Descripción: Perrita mestiza de tamaño mediano, muy cariñosa y tranquila. 
+            Perrita mestiza de tamaño mediano, muy cariñosa y tranquila. 
             Tiene 3 años, disfruta de paseos cortos y se adapta bien a espacios pequeños.
             Ideal para familias con niños.
-
         </p>
     </div>
-    
+
     <div class="card">
+        <a href="adoptar2.html">
         <img src="imagenes/max.jpg" alt="Foto de Max" class="card-img">
+        </a>
         <h2>Max</h2>
         <p>
-        Descripción: Macho de 2 años, raza pequeña tipo terrier. Alegre, curioso y muy
-         protector. Le encanta estar acompañado y es ideal para departamentos o casas 
-         con poco espacio
+            Macho de 2 años, raza pequeña tipo terrier. Alegre, curioso y muy
+            protector. Le encanta estar acompañado y es ideal para departamentos o casas 
+            con poco espacio.
         </p>
     </div>
-    
+
     <div class="card">
+        <a href="adoptar2.html">
         <img src="imagenes/rocky.jpg" alt="Foto de Rocky" class="card-img">
+        </a>
         <h2>Rocky</h2>
         <p>
-            Descripción: Macho joven de 1 año, mezcla de pastor alemán. Es enérgico,
+            Macho joven de 1 año, mezcla de pastor alemán. Es enérgico,
             juguetón y necesita actividad física diaria. Perfecto para personas activas 
             que disfruten correr o hacer caminatas largas.
-
         </p>
     </div>
 
-        <div class="card">
+    <div class="card">
+        <a href="adoptar2.html">
         <img src="imagenes/canela.jpg" alt="Foto de Canela" class="card-img">
+        </a>
         <h2>Canela</h2>
         <p>
-        Descripción: Hembra de 5 años, de pelaje color canela. Es obediente, ya está 
-        entrenada en comandos básicos y se lleva bien con otros animales. 
-        Busca un hogar tranquilo donde pueda recibir cariño
-
+            Hembra de 5 años, de pelaje color canela. Es obediente, ya está 
+            entrenada en comandos básicos y se lleva bien con otros animales. 
+            Busca un hogar tranquilo donde pueda recibir cariño.
         </p>
     </div>
+
+</section>
+
+
+<section class="container mt-5">
+    <h2 class="text-center mb-3">Razas disponibles para adoptar</h2>
+    <div class="mb-3 text-center">
+        <input id="buscarRaza" type="text" class="form-control w-50 d-inline" placeholder="Buscar raza... (ej: labrador, beagle)">
+        <button id="btnBuscar" class="btn btn-success ms-2">Buscar</button>
+        <button id="btnTodas" class="btn btn-secondary ms-2">Ver todas</button>
+    </div>
+    <div id="resultadoRazas" class="row"></div>
 </section>
 
 <script src="js/principal.js"></script>
+<script src="js/razas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,25 +1,37 @@
-document.getElementById("registroForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("btnRegistrar").addEventListener("click", function(e) {
 
-    let nombre = document.querySelector("input[name='nombre']").value;
-    let email = document.querySelector("input[name='email']").value;
+    let nombre   = document.querySelector("input[name='nombre']").value;
+    let email    = document.querySelector("input[name='email']").value;
     let password = document.querySelector("input[name='password']").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
+    let confirm  = document.getElementById("confirmPassword").value;
 
-    if(password !== confirmPassword){
-        alert("Las contraseñas no coinciden");
+    if (nombre === "" || email === "" || password === "") {
+        alert("Todos los campos son obligatorios.");
         return;
     }
 
-    let usuario = {
-        nombre: nombre,
-        email: email,
-        password: password
-    };
+    if (password !== confirm) {
+        alert("Las contrasenas no coinciden.");
+        return;
+    }
 
-    localStorage.setItem("usuario", JSON.stringify(usuario));
-
-    alert("Registro exitoso. Ahora inicia sesión.");
-
-    window.location.href = "login.html";
+    fetch("../index.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "option=registro" +
+              "&nombre=" + encodeURIComponent(nombre) +
+              "&email=" + encodeURIComponent(email) +
+              "&password=" + encodeURIComponent(password) +
+              "&confirm=" + encodeURIComponent(confirm)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.response == "00") {
+            alert(data.message);
+            window.location.href = "login.html";
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.log(error));
 });

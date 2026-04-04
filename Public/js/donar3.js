@@ -2,11 +2,11 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
     e.preventDefault();
     let valido = true;
 
-    let nombre        = document.getElementById("nombre").value.trim();
-    let cantidad      = document.getElementById("monto").value.trim();
-    let fecha         = document.getElementById("fecha").value;
-    let tipoDonacion  = document.getElementById("tipoDonacion").value;
-    let donativo      = document.getElementById("Donativo") ? document.getElementById("Donativo").value.trim() : "";
+    let nombre       = document.getElementById("nombre").value.trim();
+    let cantidad     = document.getElementById("monto").value.trim();
+    let fecha        = document.getElementById("fecha").value;
+    let tipoDonacion = document.getElementById("tipoDonacion").value;
+    let donativo     = document.getElementById("Donativo") ? document.getElementById("Donativo").value.trim() : "";
 
     document.getElementById("errorNombre").textContent       = "";
     document.getElementById("errorMonto").textContent        = "";
@@ -38,7 +38,7 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
     if (valido) {
         let tipoFinal = tipoDonacion === "Otro" ? donativo : tipoDonacion;
 
-        fetch("../../controllers/DonacionController.php", {
+        fetch("../controllers/DonacionController.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: "accion=otro" +

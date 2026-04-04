@@ -1,12 +1,27 @@
-// Verificar sesión
-let sesion = localStorage.getItem("sesionActiva");
+console.log("Proyecto Refugio - Grupo 7");
 
-if (!sesion) {
-    window.location.href = "login.html";
-}
+document.addEventListener("DOMContentLoaded", function () {
 
-// Función cerrar sesión
+    fetch("../sesion.php")
+    .then(response => response.json())
+    .then(data => {
+        if (!data.ok) {
+            window.location.href = "login.html";
+        }
+    });
+
+    let enlacesMenu = document.querySelectorAll(".navbar-nav .nav-link");
+    enlacesMenu.forEach(function(enlace) {
+        enlace.addEventListener("mouseover", function () {
+            enlace.style.color = "#f4b400";
+        });
+        enlace.addEventListener("mouseleave", function () {
+            enlace.style.color = "white";
+        });
+    });
+
+});
+
 function cerrarSesion() {
-    localStorage.removeItem("sesionActiva");
-    window.location.href = "login.html";
+    window.location.href = "../logout.php";
 }

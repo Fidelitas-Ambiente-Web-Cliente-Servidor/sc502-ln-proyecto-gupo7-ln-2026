@@ -26,11 +26,3 @@ class EventoController {
     }
 }
 
-$accion = $_POST["accion"] ?? $_GET["accion"] ?? "";
-
-$controller = new EventoController();
-if ($accion == "guardar") {
-    $controller->guardar();
-} else if ($accion == "listar") {
-    $controller->obtenerTodos();
-}

@@ -42,7 +42,7 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
     }
 
     if (valido) {
-        fetch("../../controllers/DonacionController.php", {
+        fetch("../controllers/DonacionController.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: "accion=monetaria" +
@@ -55,8 +55,8 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
         .then(data => {
             if (data.ok) {
                 alert(data.mensaje);
-                document.getElementById("nombre").value  = "";
-                document.getElementById("monto").value   = "";
+                document.getElementById("nombre").value   = "";
+                document.getElementById("monto").value    = "";
                 document.getElementById("tipoPago").value = "";
             } else {
                 alert(data.mensaje);

@@ -14,7 +14,11 @@ class Usuario {
         $sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("sss", $nombre, $email, $hash);
-        return $stmt->execute();
+        try {
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     public function login($email, $password) {

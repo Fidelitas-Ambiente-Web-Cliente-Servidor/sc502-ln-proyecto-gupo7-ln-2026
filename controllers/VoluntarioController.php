@@ -22,5 +22,3 @@ class VoluntarioController {
     }
 }
 
-$controller = new VoluntarioController();
-$controller->guardar();

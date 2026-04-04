@@ -1,8 +1,8 @@
 function cerrarSesion() {
-    window.location.href = "../../logout.php";
+    window.location.href = "../logout.php";
 }
 
-fetch("../../controllers/EventoController.php?accion=listar")
+fetch("../controllers/EventoController.php?accion=listar")
 .then(response => response.json())
 .then(data => {
     let contenedor = document.getElementById("listaEventos");

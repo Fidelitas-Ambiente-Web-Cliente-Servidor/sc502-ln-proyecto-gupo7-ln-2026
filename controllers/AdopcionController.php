@@ -21,5 +21,3 @@ class AdopcionController {
     }
 }
 
-$controller = new AdopcionController();
-$controller->guardar();

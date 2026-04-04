@@ -41,11 +41,3 @@ class DonacionController {
     }
 }
 
-$accion = $_POST["accion"] ?? "";
-
-$controller = new DonacionController();
-if ($accion == "monetaria") {
-    $controller->guardarMonetaria();
-} else if ($accion == "otro") {
-    $controller->guardarOtro();
-}

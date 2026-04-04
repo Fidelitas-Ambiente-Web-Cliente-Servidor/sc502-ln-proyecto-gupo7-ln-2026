@@ -1,23 +1,22 @@
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    let email = document.getElementById("email").value;
+    let email    = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    let usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-
-    if(usuarioGuardado &&
-       email === usuarioGuardado.email &&
-       password === usuarioGuardado.password){
-
-        // Guardar sesión activa
-        localStorage.setItem("sesionActiva", "true");
-
-        alert("Bienvenida " + usuarioGuardado.nombre);
-
-        window.location.href = "principal.html";
-
-    } else {
-        alert("Correo o contraseña incorrectos");
-    }
+    fetch("../login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert("Bienvenida " + data.nombre);
+            window.location.href = "principal.html";
+        } else {
+            alert(data.mensaje);
+        }
+    })
+    .catch(error => console.log(error));
 });

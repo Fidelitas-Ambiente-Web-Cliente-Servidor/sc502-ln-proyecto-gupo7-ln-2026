@@ -1,5 +1,15 @@
-document.querySelector(".form-donaciones_monetarias button").addEventListener("click", (e) => {
-    e.preventDefault();
+function cerrarSesion() {
+    window.location.href = "../logout.php";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const fechaInput = document.getElementById("fecha");
+    const hoy = new Date().toISOString().split("T")[0];
+    fechaInput.value = hoy;
+    fechaInput.min = hoy;
+});
+
+document.getElementById("btnDonar3").addEventListener("click", function() {
     let valido = true;
 
     let nombre       = document.getElementById("nombre").value.trim();
@@ -38,10 +48,10 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
     if (valido) {
         let tipoFinal = tipoDonacion === "Otro" ? donativo : tipoDonacion;
 
-        fetch("../controllers/DonacionController.php", {
+        fetch("../index.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "accion=otro" +
+            body: "option=donacion_otro" +
                   "&nombre=" + encodeURIComponent(nombre) +
                   "&cantidad=" + encodeURIComponent(cantidad) +
                   "&tipo_donacion=" + encodeURIComponent(tipoFinal) +
@@ -49,23 +59,21 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
         })
         .then(response => response.json())
         .then(data => {
-            if (data.ok) {
-                alert(data.mensaje);
+            if (data.response == "00") {
+                alert(data.message);
                 document.getElementById("nombre").value       = "";
                 document.getElementById("monto").value        = "";
                 document.getElementById("tipoDonacion").value = "";
             } else {
-                alert(data.mensaje);
+                alert(data.message);
             }
         })
         .catch(error => console.log(error));
     }
 });
 
-const tipoDonacionSelect = document.getElementById("tipoDonacion");
-const campoOtro          = document.getElementById("campoOtro");
-
-tipoDonacionSelect.addEventListener("change", function() {
+document.getElementById("tipoDonacion").addEventListener("change", function() {
+    let campoOtro = document.getElementById("campoOtro");
     if (this.value === "Otro") {
         campoOtro.style.display = "block";
     } else {

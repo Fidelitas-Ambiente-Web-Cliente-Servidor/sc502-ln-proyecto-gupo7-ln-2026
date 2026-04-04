@@ -1,17 +1,26 @@
-document.querySelector(".form-donaciones_monetarias button").addEventListener("click", (e) => {
-    e.preventDefault();
+function cerrarSesion() {
+    window.location.href = "../logout.php";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const fechaInput = document.getElementById("fecha");
+    const hoy = new Date().toISOString().split("T")[0];
+    fechaInput.value = hoy;
+    fechaInput.min = hoy;
+});
+
+document.getElementById("btnDonar3").addEventListener("click", function() {
     let valido = true;
 
-    let nombre    = document.getElementById("nombre").value.trim();
-    let monto     = document.getElementById("monto").value.trim();
-    let fecha     = document.getElementById("fecha").value;
-    let tipoPago  = document.getElementById("tipoPago").value;
-    let numeroTarjeta = document.getElementById("numeroTarjeta") ? document.getElementById("numeroTarjeta").value.trim() : "";
+    let nombre       = document.getElementById("nombre").value.trim();
+    let cantidad     = document.getElementById("monto").value.trim();
+    let fecha        = document.getElementById("fecha").value;
+    let tipoDonacion = document.getElementById("tipoDonacion").value;
+    let donativo     = document.getElementById("Donativo") ? document.getElementById("Donativo").value.trim() : "";
 
-    document.getElementById("errorNombre").textContent   = "";
-    document.getElementById("errorMonto").textContent    = "";
-    document.getElementById("errorFecha").textContent    = "";
-    document.getElementById("errorTipoPago").textContent = "";
+    document.getElementById("errorNombre").textContent       = "";
+    document.getElementById("errorMonto").textContent        = "";
+    document.getElementById("errortipoDonacion").textContent = "";
     if (document.getElementById("errorTarjeta")) {
         document.getElementById("errorTarjeta").textContent = "";
     }
@@ -21,58 +30,53 @@ document.querySelector(".form-donaciones_monetarias button").addEventListener("c
         valido = false;
     }
 
-    if (monto === "" || isNaN(monto) || parseFloat(monto) <= 0) {
-        document.getElementById("errorMonto").textContent = "Debe ingresar un monto valido mayor a 0.";
+    if (cantidad === "" || isNaN(cantidad) || parseFloat(cantidad) <= 0) {
+        document.getElementById("errorMonto").textContent = "Debe ingresar una cantidad valida.";
         valido = false;
     }
 
-    if (!tipoPago) {
-        document.getElementById("errorTipoPago").textContent = "Debe seleccionar un metodo de pago.";
+    if (!tipoDonacion) {
+        document.getElementById("errortipoDonacion").textContent = "Debe seleccionar un tipo de donacion.";
         valido = false;
     }
 
-    if (tipoPago === "tarjeta") {
-        if (numeroTarjeta === "") {
-            document.getElementById("errorTarjeta").textContent = "Debe ingresar el numero de tarjeta.";
-            valido = false;
-        } else if (!/^\d{16}$/.test(numeroTarjeta.replace(/\s|-/g, ""))) {
-            document.getElementById("errorTarjeta").textContent = "El numero de tarjeta debe tener 16 digitos.";
-            valido = false;
-        }
+    if (tipoDonacion === "Otro" && donativo === "") {
+        document.getElementById("errorTarjeta").textContent = "Debe especificar el donativo.";
+        valido = false;
     }
 
     if (valido) {
-        fetch("../controllers/DonacionController.php", {
+        let tipoFinal = tipoDonacion === "Otro" ? donativo : tipoDonacion;
+
+        fetch("../index.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "accion=monetaria" +
+            body: "option=donacion_otro" +
                   "&nombre=" + encodeURIComponent(nombre) +
-                  "&monto=" + encodeURIComponent(monto) +
-                  "&fecha=" + encodeURIComponent(fecha) +
-                  "&tipo_pago=" + encodeURIComponent(tipoPago)
+                  "&cantidad=" + encodeURIComponent(cantidad) +
+                  "&tipo_donacion=" + encodeURIComponent(tipoFinal) +
+                  "&fecha=" + encodeURIComponent(fecha)
         })
         .then(response => response.json())
         .then(data => {
-            if (data.ok) {
-                alert(data.mensaje);
-                document.getElementById("nombre").value   = "";
-                document.getElementById("monto").value    = "";
-                document.getElementById("tipoPago").value = "";
+            if (data.response == "00") {
+                alert(data.message);
+                document.getElementById("nombre").value       = "";
+                document.getElementById("monto").value        = "";
+                document.getElementById("tipoDonacion").value = "";
             } else {
-                alert(data.mensaje);
+                alert(data.message);
             }
         })
         .catch(error => console.log(error));
     }
 });
 
-const tipoPagoSelect = document.getElementById("tipoPago");
-const campoTarjeta   = document.getElementById("campoTarjeta");
-
-tipoPagoSelect.addEventListener("change", function() {
-    if (this.value === "tarjeta") {
-        campoTarjeta.style.display = "block";
+document.getElementById("tipoDonacion").addEventListener("change", function() {
+    let campoOtro = document.getElementById("campoOtro");
+    if (this.value === "Otro") {
+        campoOtro.style.display = "block";
     } else {
-        campoTarjeta.style.display = "none";
+        campoOtro.style.display = "none";
     }
 });

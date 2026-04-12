@@ -9,21 +9,21 @@ document.getElementById("eventoForm").addEventListener("submit", function(e) {
     let descripcion = document.getElementById("descripcion").value;
     let fecha       = document.getElementById("fecha").value;
 
-    fetch("../controllers/EventoController.php", {
+    fetch("../index.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "accion=guardar" +
+        body: "option=evento" +
               "&titulo=" + encodeURIComponent(titulo) +
               "&descripcion=" + encodeURIComponent(descripcion) +
               "&fecha=" + encodeURIComponent(fecha)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.ok) {
-            alert(data.mensaje);
+        if (data.response == "00") {
+            alert(data.message);
             window.location.href = "eventos.html";
         } else {
-            alert(data.mensaje);
+            alert(data.message);
         }
     })
     .catch(error => console.log(error));

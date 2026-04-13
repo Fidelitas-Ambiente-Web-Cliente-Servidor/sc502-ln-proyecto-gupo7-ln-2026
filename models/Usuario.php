@@ -13,17 +13,18 @@ class Usuario {
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
+        if (!$stmt) return false;
         $stmt->bind_param("sss", $nombre, $email, $hash);
-        try {
-            return $stmt->execute();
-        } catch (Exception $e) {
-            return false;
+        if ($stmt->execute()) {
+            return true;
         }
+        return false;
     }
 
     public function login($email, $password) {
         $sql = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
+        if (!$stmt) return false;
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $resultado = $stmt->get_result()->fetch_assoc();

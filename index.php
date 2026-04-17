@@ -109,4 +109,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         header("Location: public/login.html");
         exit;
     }
+
+    if ($option == "estadisticas") {
+    $db = (new Database())->connect();
+    
+    $eventos    = $db->query("SELECT COUNT(*) as total FROM eventos")->fetch_assoc()['total'];
+    $adopciones = $db->query("SELECT COUNT(*) as total FROM adopciones")->fetch_assoc()['total'];
+    $donaciones = $db->query("SELECT COUNT(*) as total FROM donaciones_monetarias")->fetch_assoc()['total'] + 
+                  $db->query("SELECT COUNT(*) as total FROM donaciones_otros")->fetch_assoc()['total'];
+    $voluntarios = $db->query("SELECT COUNT(*) as total FROM voluntarios")->fetch_assoc()['total'];
+    
+    echo json_encode([
+        "eventos"     => $eventos,
+        "adopciones"  => $adopciones,
+        "donaciones"  => $donaciones,
+        "voluntarios" => $voluntarios
+    ]);
+    exit;
+    }
 }

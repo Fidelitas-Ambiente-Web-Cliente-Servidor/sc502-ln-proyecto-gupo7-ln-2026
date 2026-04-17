@@ -1,83 +1,112 @@
+body {
+  background-color: #f0f4f8;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 .secciones {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-  margin-top: 100px; 
-  padding: 20px;
+  margin-top: 100px;
+  padding: 40px;
 }
 
-/* Sección izquierda */
 .descripcion {
   flex: 1;
-  background: #ffefe0;
-  padding: 20px;
-  border-radius: 8px;
-}
-.descripcion img {
-  width: 100%;          
-  max-width: 600px;     
-  height: auto;         
-  display: block;
-  margin: 0 auto 15px;  
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  text-align: center;
 }
 
-/* Sección derecha: formulario de donaciones */
+.descripcion h2 {
+  color: #2471a3;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.descripcion img {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+.descripcion p {
+  color: #555;
+  line-height: 1.6;
+}
+
 .form-donaciones_monetarias {
   flex: 1;
-  background: #f9f9f9;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .form-donaciones_monetarias h2 {
-  margin-bottom: 10px;
-  color: #333;
+  color: #2471a3;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .form-donaciones_monetarias p {
-  margin-bottom: 20px;
-  color: #666;
+  color: #888;
+  margin-bottom: 25px;
 }
 
 .form-donaciones_monetarias label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 500;
-  color: #444;
+  font-weight: 600;
+  color: #333;
 }
 
 .form-donaciones_monetarias input,
 .form-donaciones_monetarias select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 20px; 
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  background-color: #fff;
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+  background-color: #fafafa;
+}
+
+.form-donaciones_monetarias input:focus,
+.form-donaciones_monetarias select:focus {
+  border-color: #2471a3;
+  outline: none;
+  background-color: white;
 }
 
 .form-donaciones_monetarias .error {
-  font-size: 0.9em;
-  color: #d9534f;
-  margin-top: -10px;
-  margin-bottom: 15px; 
+  font-size: 0.85em;
+  color: #e74c3c;
+  margin-bottom: 15px;
 }
 
-/* Botón Donar */
 .form-donaciones_monetarias button {
-  background-color: #3498db;
-  color: white;
-  padding: 10px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
   width: 100%;
+  padding: 14px;
+  background-color: #2471a3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 .form-donaciones_monetarias button:hover {
-  background-color: #217dbb;
+  background-color: #1a5276;
 }

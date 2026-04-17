@@ -1,75 +1,112 @@
+body {
+  background-color: #f0f4f8;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 .secciones {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-  margin-top: 100px; 
-  padding: 20px;
+  margin-top: 100px;
+  padding: 40px;
 }
 
-/* Sección izquierda */
 .descripcion {
   flex: 1;
-  background: #ffefe0;
-  padding: 20px;
-  border-radius: 8px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  text-align: center;
 }
+
+.descripcion h2 {
+  color: #2c7a4b;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
 .descripcion img {
-  width: 100%;          
-  max-width: 600px;     
-  height: auto;         
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 15px;
   display: block;
-  margin: 0 auto 15px;  
 }
 
+.descripcion p {
+  color: #555;
+  line-height: 1.6;
+}
 
-/* Sección derecha */
 .form-adopcion {
   flex: 1;
-  background: #f9f9f9;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.form-adopcion h2 {
+  color: #2c7a4b;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.form-adopcion p {
+  color: #888;
+  margin-bottom: 25px;
 }
 
 .form-adopcion label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 500;
-  color: #444;
+  font-weight: 600;
+  color: #333;
 }
 
-.form-adopcion input {
+.form-adopcion input,
+.form-adopcion select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 20px; 
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+  background-color: #fafafa;
+}
+
+.form-adopcion input:focus,
+.form-adopcion select:focus {
+  border-color: #2c7a4b;
+  outline: none;
+  background-color: white;
 }
 
 .form-adopcion .error {
-  font-size: 0.9em;
-  color: #d9534f;
-  margin-top: -10px;
-  margin-bottom: 15px; 
+  font-size: 0.85em;
+  color: #e74c3c;
+  margin-bottom: 15px;
 }
 
-
-/* Reutiliza estilos de .form-adopcion input */
-.dropbtn {
-  background-color: #3498db;
-  color: white;
-  padding: 10px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;   /* igual que tus inputs */
-  cursor: pointer;
-  margin-bottom: 20px;  /* mismo espacio que los inputs */
-  width: 100%;          /* coherente con el formulario */
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
+#btnAgendar {
   width: 100%;
+  padding: 14px;
+  background-color: #2c7a4b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+#btnAgendar:hover {
+  background-color: #225f3a;
 }

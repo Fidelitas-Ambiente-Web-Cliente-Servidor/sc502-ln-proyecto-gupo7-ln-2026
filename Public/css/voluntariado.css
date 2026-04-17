@@ -1,130 +1,180 @@
+body {
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container.mt-5 {
+    margin-bottom: 20px;
+}
+
+.container.mt-5 h1 {
+    color: #1a7a4a;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.container.mt-5 p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
 .info {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 40px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 40px;
+  flex-wrap: wrap;
 }
 
 .card {
-    background: #f7d6bf;
-    padding: 20px;
+    background: white;
+    padding: 25px;
     width: 300px;
-    border-radius: 8px;
+    border-radius: 16px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 .card h2 {
+    color: #1a7a4a;
     margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 .card p {
     font-size: 14px;
+    color: #666;
+    line-height: 1.6;
 }
-
-
-/* Estilo formulario voluntareados voluntariado1,2,3 */
 
 .secciones {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    margin-top: 100px;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 100px;
+  padding: 40px;
 }
 
-
-
-
 .descripcion {
-    flex: 1;
-    background: #abfad2;
-    padding: 20px;
-    border-radius: 8px;
+  flex: 1;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .descripcion h2 {
-    margin-bottom: 15px;
+  color: #1a7a4a;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
 .descripcion h3 {
-    margin-bottom: 3px;
-    
+  color: #1a7a4a;
+  margin-bottom: 5px;
 }
 
 .descripcion p {
-    font-size: 15px;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
 }
-
-
-
 
 .form-voluntariado {
-    flex: 1;
-    background: #f9f9f9;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
+.form-voluntariado h2 {
+  color: #1a7a4a;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.form-voluntariado p {
+  color: #888;
+  margin-bottom: 25px;
+}
 
 .form-voluntariado label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
 }
-
 
 .form-voluntariado input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+  background-color: #fafafa;
 }
 
+.form-voluntariado input:focus {
+  border-color: #1a7a4a;
+  outline: none;
+  background-color: white;
+}
 
 .form-voluntariado button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
+  width: 100%;
+  padding: 14px;
+  background-color: #1a7a4a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
 }
-
 
 .form-voluntariado button:hover {
-    background-color: #217dbb;
+  background-color: #145c38;
 }
-
-
-
 
 .error {
-    font-size: 0.9em;
-    color: #d9534f;
-    margin-top: -10px;
-    margin-bottom: 15px;
+  font-size: 0.85em;
+  color: #e74c3c;
+  margin-bottom: 15px;
 }
 
-
-
-
 .Exito {
-    margin-top: 15px;
-    color: green;
-    font-weight: bold;
+  margin-top: 15px;
+  color: #1a7a4a;
+  font-weight: bold;
+  text-align: center;
+
+  .img-voluntariado {
+    width: 100%;
+    max-width: 500px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 15px auto;
+    display: block;
+}
 }

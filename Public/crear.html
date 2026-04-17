@@ -6,6 +6,83 @@
 <title>Registrar Evento | Vida Rescate</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #f0f4f8;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card-formulario {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        padding: 40px;
+        max-width: 600px;
+        margin: 120px auto 40px;
+    }
+
+    .card-formulario h2 {
+        color: #8e44ad;
+        font-size: 1.6rem;
+        margin-bottom: 5px;
+    }
+
+    .card-formulario p {
+        color: #888;
+        margin-bottom: 25px;
+    }
+
+    .card-formulario label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .card-formulario input,
+    .card-formulario textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        background-color: #fafafa;
+        transition: border-color 0.3s;
+        box-sizing: border-box;
+    }
+
+    .card-formulario input:focus,
+    .card-formulario textarea:focus {
+        border-color: #8e44ad;
+        outline: none;
+        background-color: white;
+    }
+
+    .card-formulario textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
+    #btnGuardar {
+        width: 100%;
+        padding: 14px;
+        background-color: #8e44ad;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 5px;
+    }
+
+    #btnGuardar:hover {
+        background-color: #6c3483;
+    }
+</style>
 </head>
 
 <body>
@@ -17,33 +94,37 @@
     <a href="principal.html" class="btn btn-secondary me-2">
         ⬅ Volver al Inicio
     </a>
-
     <button class="btn btn-danger" onclick="cerrarSesion()">
         Cerrar Sesión
     </button>
 </div>
+</div>
 </nav>
 
-<div class="container mt-5 pt-5">
-<h2>Registrar Nuevo Evento</h2>
+<div class="card-formulario">
+    <h2>Registrar Nuevo Evento</h2>
+    <p>Complete los campos para agregar un evento</p>
 
-<form id="eventoForm">
+    <form id="eventoForm">
 
-<div class="mb-3">
-<input type="text" id="titulo" class="form-control" placeholder="Título del evento" required>
-</div>
+        <div class="mb-3">
+            <label for="titulo">Título del evento</label>
+            <input type="text" id="titulo" placeholder="Escribe el título" required>
+        </div>
 
-<div class="mb-3">
-<textarea id="descripcion" class="form-control" placeholder="Descripción" required></textarea>
-</div>
+        <div class="mb-3">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" placeholder="Describe el evento" required></textarea>
+        </div>
 
-<div class="mb-3">
-<input type="date" id="fecha" class="form-control" required>
-</div>
+        <div class="mb-3">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" required>
+        </div>
 
-<button type="submit" class="btn btn-success">Guardar Evento</button>
+        <button type="submit" id="btnGuardar">Guardar Evento</button>
 
-</form>
+    </form>
 </div>
 
 <script src="js/crear.js"></script>

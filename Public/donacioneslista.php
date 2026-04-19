@@ -55,7 +55,6 @@ $result_otros = $conn->query($sql_otros);
 </div>
 
 <div class="container mt-4">
-  <!-- Tabla de Donaciones Monetarias -->
   <h3>Donaciones Monetarias</h3>
   <table class="table table-striped shadow">
     <thead class="table-dark">
@@ -80,7 +79,9 @@ $result_otros = $conn->query($sql_otros);
     </tbody>
   </table>
 
-  <!-- Tabla de Donaciones Otros -->
+
+
+
   <h3 class="mt-5">Donaciones otros</h3>
   <table class="table table-striped shadow">
     <thead class="table-dark">

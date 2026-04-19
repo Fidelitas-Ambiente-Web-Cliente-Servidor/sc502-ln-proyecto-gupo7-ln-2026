@@ -36,7 +36,6 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-<!-- Navbar igual que en estadísticas -->
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container">
     <a class="navbar-brand">Vida Rescate Atenas</a>

@@ -33,7 +33,7 @@ $result = $conn->query($sql);
     .titulo h2 {
         font-size: 2rem;
         font-weight: 700;
-        color: #8e44ad;
+        color: #080c47;
     }
 
     .titulo p {

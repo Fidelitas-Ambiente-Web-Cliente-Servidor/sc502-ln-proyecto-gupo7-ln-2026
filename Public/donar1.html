@@ -1,67 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Principal | Vida Rescate</title>
+<title>Donaciones | Vida Rescate</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/principal.css">
+<link rel="stylesheet" href="css/donar1.css">
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
 <div class="container">
-<a class="navbar-brand fw-bold" href="#">Vida Rescate Atenas</a>
+    <a class="navbar-brand fw-bold">Vida Rescate Atenas</a>
 
-<div class="collapse navbar-collapse">
-<ul class="navbar-nav ms-auto align-items-center">
-<li class="nav-item"><a class="nav-link" href="principal.html">Inicio</a></li>
-<li class="nav-item"><a class="nav-link" href="adoptar1.html">Adoptar</a></li>
-<li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadísticas</a></li>
-<li class="nav-item"><a class="nav-link" href="crear.html">Registrar</a></li>
-<li class="nav-item"><a class="nav-link" href="donar1.html">Donaciones</a></li>
-<li class="nav-item"><a class="nav-link" href="voluntariado.html">Voluntariado</a></li>
-<li class="nav-item">
-<button class="btn btn-danger ms-3" onclick="cerrarSesion()">Cerrar Sesión</button>
-</li>
-</ul>
-</div>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link" href="principal.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="adoptar1.html">Adoptar</a></li>
+            <li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadísticas</a></li>
+            <li class="nav-item"><a class="nav-link" href="crear.html">Registrar</a></li>
+            <li class="nav-item"><a class="nav-link active" href="donar1.html">Donaciones</a></li>
+            <li class="nav-item"><a class="nav-link" href="voluntariado.html">Voluntariado</a></li>
+            <li class="nav-item">
+                <button class="btn btn-danger ms-3" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </li>
+        </ul>
+    </div>
 </div>
 </nav>
 
-<section class="container mt-5 pt-5 text-center">
-<h1 class="mt-5">Seccion de Donaciones</h1>
-<p>Animales Disponibles</p>
+<!-- HERO -->
+<section class="hero-donaciones">
+    <h1>💙 Ayuda a los animales</h1>
+    <p>Tu apoyo transforma vidas en Rescate Animal Atenas</p>
 </section>
 
-<section class="info">
-    
-    <div class="card">
-        <a href="donar2.html">
-        <img src="imagenes/donaciones_dinero.jpg" alt="Foto de Luna" class="card-img">
-        </a>
-        <h2>Donaciones monetarias</h2>
-        <p>
-        Descripción: Se podran enviar donaciones en colones y dolares
-        </p>
+<!-- INFO EXTRA -->
+<section class="impacto">
+    <div class="box">
+        <h3>🐾 +150 animales rescatados</h3>
+        <p>Cada donación ayuda a alimentar, curar y proteger animales en abandono.</p>
     </div>
-    
-    <div class="card">
-        <a href="donar3.html">
-        <img src="imagenes/donaciones_alimento.jpg" alt="Foto de Max" class="card-img">
-        </a>
-        <h2>Donaciones Otros</h2>
-        <p>
-        Descripción: Se pueden enviar donacioines de alimentos, vacunas y otros.
-        </p>
+
+    <div class="box">
+        <h3>🏥 Atención veterinaria</h3>
+        <p>Las donaciones permiten tratamientos médicos y vacunas esenciales.</p>
     </div>
-    
+
+    <div class="box">
+        <h3>🏡 Hogares seguros</h3>
+        <p>Apoyamos procesos de adopción responsable en la comunidad.</p>
     </div>
 </section>
+
+<!-- CARDS -->
+<section class="info">
+
+    <div class="card-donacion">
+        <a href="donar2.html">
+            <div class="img-box">
+                <img src="imagenes/donaciones_dinero.jpg" alt="Donaciones monetarias">
+                <div class="overlay">Donar 💰</div>
+            </div>
+        </a>
+
+        <h2>Donaciones Monetarias</h2>
+        <p>Aportes en colones o dólares para alimentación y rescates.</p>
+    </div>
+
+    <div class="card-donacion">
+        <a href="donar3.html">
+            <div class="img-box">
+                <img src="imagenes/donaciones_alimento.jpg" alt="Donaciones en especie">
+                <div class="overlay">Ayudar 🐾</div>
+            </div>
+        </a>
+
+        <h2>Donaciones en Especie</h2>
+        <p>Alimentos, medicinas, vacunas y artículos para los animales.</p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div>
+            <h4>Rescate Animal Atenas 🐾</h4>
+            <p>Organización dedicada al rescate, cuidado y adopción de animales en Costa Rica.</p>
+        </div>
+
+        <div>
+            <h5>Contacto</h5>
+            <p>📍 Atenas, Alajuela</p>
+            <p>✉ rescate@atenas.org</p>
+        </div>
+
+        <div>
+            <h5>Redes Sociales</h5>
+            <p>Facebook</p>
+            <p>Instagram</p>
+            <p>WhatsApp</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="text-center small">© 2026 Rescate Animal Atenas - Todos los derechos reservados</p>
+
+</div>
+</footer>
 
 <script src="js/principal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,113 @@
+/* ===== GENERAL ===== */
+body {
+  background: linear-gradient(135deg, #eef2f7, #e3e9f0);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: linear-gradient(90deg, #1a1a2e, #16213e);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #fff !important;
+}
+
+/* ===== TITULO ===== */
+.titulo {
+  text-align: center;
+  margin: 120px auto 30px;
+}
+
+.titulo h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.titulo p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ===== GRID ===== */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  padding: 20px 60px;
+}
+
+/* ===== TARJETA ===== */
+.tarjeta {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* línea decorativa */
+.tarjeta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+}
+
+/* hover */
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* icono */
+.tarjeta .icono {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+/* numero */
+.tarjeta .numero {
+  font-size: 2.7rem;
+  font-weight: bold;
+}
+
+/* label */
+.tarjeta .label {
+  color: #888;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+/* detalle extra */
+.tarjeta .detalle {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* ===== COLORES ===== */
+.verde::before { background: #27ae60; }
+.azul::before { background: #2980b9; }
+.naranja::before { background: #e67e22; }
+.morado::before { background: #8e44ad; }
+
+.verde .numero { color: #27ae60; }
+.azul .numero { color: #2980b9; }
+.naranja .numero { color: #e67e22; }
+.morado .numero { color: #8e44ad; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .tarjetas {
+    padding: 20px;
+  }
+}

@@ -14,14 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $tamano = $_POST["tamano"];
     $descripcion = $_POST["descripcion"];
 
-    // 🔥 MANEJO DE IMAGEN
+    
     $nombreImagen = $_FILES["imagen"]["name"];
     $rutaTemporal = $_FILES["imagen"]["tmp_name"];
 
-    // carpeta destino
+  
     $rutaDestino = "imagenes/" . $nombreImagen;
 
-    // mover archivo
+  
     if (move_uploaded_file($rutaTemporal, $rutaDestino)) {
 
         $sql = "INSERT INTO mascotas (nombre, edad, descripcion, tamano, imagen)

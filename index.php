@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $adopciones = $db->query("SELECT COUNT(*) AS total FROM adopciones")
             ->fetch_assoc()['total'] ?? 0;
 
-        $donacionesMonetarias = $db->query("SELECT COUNT(*) AS total FROM donaciones_monetarias")
+        $donacionesMonetarias = $db->query("SELECT SUM(monto) AS total FROM donaciones_monetarias")
             ->fetch_assoc()['total'] ?? 0;
 
         $donacionesOtros = $db->query("SELECT COUNT(*) AS total FROM donaciones_otros")

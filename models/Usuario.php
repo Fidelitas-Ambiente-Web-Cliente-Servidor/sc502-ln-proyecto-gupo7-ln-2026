@@ -11,26 +11,32 @@ class Usuario {
 
     public function registrar($nombre, $email, $password) {
         $hash = password_hash($password, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)";
+
+        $sql = "INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, 'usuario')";
         $stmt = $this->conn->prepare($sql);
+
         if (!$stmt) return false;
+
         $stmt->bind_param("sss", $nombre, $email, $hash);
-        if ($stmt->execute()) {
-            return true;
-        }
-        return false;
+
+        return $stmt->execute();
     }
 
     public function login($email, $password) {
         $sql = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
+
         if (!$stmt) return false;
+
         $stmt->bind_param("s", $email);
         $stmt->execute();
+
         $resultado = $stmt->get_result()->fetch_assoc();
+
         if ($resultado && password_verify($password, $resultado["password"])) {
             return $resultado;
         }
+
         return false;
     }
 }

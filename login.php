@@ -4,22 +4,34 @@ require_once __DIR__ . "/models/Usuario.php";
 
 header("Content-Type: application/json");
 
-$email    = $_POST["email"]    ?? "";
+$email    = $_POST["email"] ?? "";
 $password = $_POST["password"] ?? "";
 
 if ($email == "" || $password == "") {
-    echo json_encode(["ok" => false, "mensaje" => "Campos obligatorios."]);
+    echo json_encode(["ok" => false, "mensaje" => "Campos obligatorios"]);
     exit;
 }
 
-$model    = new Usuario();
-$usuario  = $model->login($email, $password);
+$model = new Usuario();
+$usuario = $model->login($email, $password);
 
 if ($usuario) {
+
+    // 🔐 SESIÓN
     $_SESSION["sesionActiva"] = true;
-    $_SESSION["nombre"]       = $usuario["nombre"];
-    $_SESSION["email"]        = $usuario["email"];
-    echo json_encode(["ok" => true, "nombre" => $usuario["nombre"]]);
+    $_SESSION["nombre"] = $usuario["nombre"];
+    $_SESSION["email"] = $usuario["email"];
+    $_SESSION["rol"] = $usuario["rol"]; // 👑 IMPORTANTE
+
+    echo json_encode([
+        "ok" => true,
+        "nombre" => $usuario["nombre"],
+        "rol" => $usuario["rol"]
+    ]);
+
 } else {
-    echo json_encode(["ok" => false, "mensaje" => "Correo o contrasena incorrectos."]);
+    echo json_encode([
+        "ok" => false,
+        "mensaje" => "Correo o contraseña incorrectos"
+    ]);
 }

@@ -13,118 +13,156 @@ require_once __DIR__ . '/controllers/DonacionController.php';
 require_once __DIR__ . '/controllers/VoluntarioController.php';
 require_once __DIR__ . '/controllers/EventoController.php';
 
+$option = $_REQUEST['option'] ?? "";
+
+# =========================
+# POST REQUESTS
+# =========================
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $option = $_POST['option'] ?? "";
+    if ($option === "registro") {
 
-    if ($option == "registro") {
-        $nombre   = $_POST["nombre"]   ?? "";
-        $email    = $_POST["email"]    ?? "";
+        $nombre   = $_POST["nombre"] ?? "";
+        $email    = $_POST["email"] ?? "";
         $password = $_POST["password"] ?? "";
-        $confirm  = $_POST["confirm"]  ?? "";
+        $confirm  = $_POST["confirm"] ?? "";
 
         if ($password !== $confirm) {
-            echo json_encode(["response" => "01", "message" => "Las contrasenas no coinciden."]);
+            echo json_encode([
+                "response" => "01",
+                "message" => "Las contraseñas no coinciden."
+            ]);
             exit;
         }
 
         $model = new Usuario();
+
         if ($model->registrar($nombre, $email, $password)) {
-            echo json_encode(["response" => "00", "message" => "Registro exitoso. Ahora inicia sesion."]);
+            echo json_encode([
+                "response" => "00",
+                "message" => "Registro exitoso. Ahora inicia sesión."
+            ]);
         } else {
-            echo json_encode(["response" => "01", "message" => "Error al registrar. El correo ya existe."]);
+            echo json_encode([
+                "response" => "01",
+                "message" => "Error al registrar. El correo ya existe."
+            ]);
         }
         exit;
     }
 
-    if ($option == "login") {
-        $email    = $_POST["email"]    ?? "";
+    if ($option === "login") {
+
+        $email    = $_POST["email"] ?? "";
         $password = $_POST["password"] ?? "";
 
         $model   = new Usuario();
         $usuario = $model->login($email, $password);
 
         if ($usuario) {
+
             $_SESSION["sesionActiva"] = true;
-            $_SESSION["nombre"]       = $usuario["nombre"];
-            $_SESSION["email"]        = $usuario["email"];
-            echo json_encode(["response" => "00", "message" => "Login exitoso", "nombre" => $usuario["nombre"]]);
+            $_SESSION["nombre"] = $usuario["nombre"];
+            $_SESSION["email"]  = $usuario["email"];
+
+            echo json_encode([
+                "response" => "00",
+                "message" => "Login exitoso",
+                "nombre" => $usuario["nombre"]
+            ]);
         } else {
-            echo json_encode(["response" => "01", "message" => "Correo o contrasena incorrectos."]);
+            echo json_encode([
+                "response" => "01",
+                "message" => "Correo o contraseña incorrectos."
+            ]);
         }
         exit;
     }
 
-    if ($option == "adopcion") {
-        $controller = new AdopcionController();
-        $controller->guardar();
+    if ($option === "adopcion") {
+        (new AdopcionController())->guardar();
         exit;
     }
 
-    if ($option == "donacion_monetaria") {
-        $controller = new DonacionController();
-        $controller->guardarMonetaria();
+    if ($option === "donacion_monetaria") {
+        (new DonacionController())->guardarMonetaria();
         exit;
     }
 
-    if ($option == "donacion_otro") {
-        $controller = new DonacionController();
-        $controller->guardarOtro();
+    if ($option === "donacion_otro") {
+        (new DonacionController())->guardarOtro();
         exit;
     }
 
-    if ($option == "voluntario") {
-        $controller = new VoluntarioController();
-        $controller->guardar();
+    if ($option === "voluntario") {
+        (new VoluntarioController())->guardar();
         exit;
     }
 
-    if ($option == "evento") {
-        $controller = new EventoController();
-        $controller->guardar();
+    if ($option === "evento") {
+        (new EventoController())->guardar();
         exit;
     }
 }
 
+# =========================
+# GET REQUESTS
+# =========================
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $option = $_GET['option'] ?? "";
 
-    if ($option == "sesion") {
-        if (isset($_SESSION["sesionActiva"]) && $_SESSION["sesionActiva"] === true) {
-            echo json_encode(["response" => "00", "nombre" => $_SESSION["nombre"]]);
+    if ($option === "sesion") {
+
+        if (!empty($_SESSION["sesionActiva"])) {
+            echo json_encode([
+                "response" => "00",
+                "nombre" => $_SESSION["nombre"]
+            ]);
         } else {
             echo json_encode(["response" => "01"]);
         }
         exit;
     }
 
-    if ($option == "eventos") {
-        $controller = new EventoController();
-        $controller->obtenerTodos();
+    if ($option === "eventos") {
+        (new EventoController())->obtenerTodos();
         exit;
     }
 
-    if ($option == "logout") {
+    if ($option === "logout") {
         session_destroy();
-        header("Location: public/login.html");
+        echo json_encode([
+            "response" => "00",
+            "message" => "Sesión cerrada"
+        ]);
         exit;
     }
 
-    if ($option == "estadisticas") {
-    $db = (new Database())->connect();
-    
-    $eventos    = $db->query("SELECT COUNT(*) as total FROM eventos")->fetch_assoc()['total'];
-    $adopciones = $db->query("SELECT COUNT(*) as total FROM adopciones")->fetch_assoc()['total'];
-    $donaciones = $db->query("SELECT COUNT(*) as total FROM donaciones_monetarias")->fetch_assoc()['total'] + 
-                  $db->query("SELECT COUNT(*) as total FROM donaciones_otros")->fetch_assoc()['total'];
-    $voluntarios = $db->query("SELECT COUNT(*) as total FROM voluntarios")->fetch_assoc()['total'];
-    
-    echo json_encode([
-        "eventos"     => $eventos,
-        "adopciones"  => $adopciones,
-        "donaciones"  => $donaciones,
-        "voluntarios" => $voluntarios
-    ]);
-    exit;
+    if ($option === "estadisticas") {
+
+        $db = (new Database())->connect();
+
+        $eventos = $db->query("SELECT COUNT(*) AS total FROM eventos")
+            ->fetch_assoc()['total'] ?? 0;
+
+        $adopciones = $db->query("SELECT COUNT(*) AS total FROM adopciones")
+            ->fetch_assoc()['total'] ?? 0;
+
+        $donacionesMonetarias = $db->query("SELECT SUM(monto) AS total FROM donaciones_monetarias")
+            ->fetch_assoc()['total'] ?? 0;
+
+        $donacionesOtros = $db->query("SELECT COUNT(*) AS total FROM donaciones_otros")
+            ->fetch_assoc()['total'] ?? 0;
+
+        $voluntarios = $db->query("SELECT COUNT(*) AS total FROM voluntarios")
+            ->fetch_assoc()['total'] ?? 0;
+
+        echo json_encode([
+            "eventos" => $eventos,
+            "adopciones" => $adopciones,
+            "donaciones" => $donacionesMonetarias + $donacionesOtros,
+            "voluntarios" => $voluntarios
+        ]);
+
+        exit;
     }
 }

@@ -17,7 +17,7 @@ $usuario = $model->login($email, $password);
 
 if ($usuario) {
 
-    // 🔐 SESIÓN
+   
     $_SESSION["sesionActiva"] = true;
     $_SESSION["nombre"] = $usuario["nombre"];
     $_SESSION["email"] = $usuario["email"];

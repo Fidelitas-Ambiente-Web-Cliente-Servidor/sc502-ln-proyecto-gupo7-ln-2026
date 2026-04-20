@@ -4,10 +4,10 @@ require_once __DIR__ . "/../config/Database.php";
 $db = new Database();
 $conn = $db->connect();
 
-// 🔥 recibir ID del perro
+
 $id = $_GET["id"] ?? 0;
 
-// 🔥 buscar en BD
+
 $sql = "SELECT * FROM mascotas WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);

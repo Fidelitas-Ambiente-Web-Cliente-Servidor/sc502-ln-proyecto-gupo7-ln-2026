@@ -15,9 +15,7 @@ require_once __DIR__ . '/controllers/EventoController.php';
 
 $option = $_REQUEST['option'] ?? "";
 
-# =========================
-# POST REQUESTS
-# =========================
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($option === "registro") {
@@ -105,9 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-# =========================
-# GET REQUESTS
-# =========================
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if ($option === "sesion") {

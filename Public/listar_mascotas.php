@@ -28,13 +28,16 @@ if ($nombre != "") {
 while($fila = $resultado->fetch_assoc()) {
 
     echo '
-    <div class="animal-card">
-        <img src="'.$fila['imagen'].'">
-        <div class="animal-card-body">
-            <h2>'.$fila['nombre'].'</h2>
-            <p>'.$fila['descripcion'].'</p>
-        </div>
-    </div>
-    ';
+    <a href="adoptar2.html" class="text-decoration-none">
+           <div class="animal-card">
+               <img src="'.$fila['imagen'].'">
+               <div class="animal-card-body">
+                  <h2>'.$fila['nombre'].'</h2>
+                  <p>'.$fila['descripcion'].'</p>
+                </div>
+           </div>
+           </a>
+';
+
 }
 ?>

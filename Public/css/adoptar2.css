@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --dark:    #1a1a2e;
+  --mid:     #16213e;
+  --accent:  #e94560;
+  --gold:    #f5a623;
+  --light:   #f4f6f8;
+  --white:   #ffffff;
+  --text:    #333344;
+  --muted:   #777790;
+  --radius:  14px;
+  --shadow:  0 8px 32px rgba(26,26,46,0.12);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--light);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: var(--dark) !important;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+
+.navbar-brand {
+  color: var(--white) !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.65) !important;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--white) !important;
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+  background: var(--white);
+  padding: 32px 0 24px;
+  border-bottom: 1px solid #e0e4ea;
+}
+
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: var(--dark);
+}
+
+.page-header p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.btn-registrar {
+  background: var(--dark);
+  color: var(--white);
+  padding: 11px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-registrar:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+  color: var(--white);
+}
+
+/* ===== BUSCADOR ===== */
+.buscador-section {
+  background: var(--white);
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  margin-top: 28px;
+  box-shadow: var(--shadow);
+}
+
+.buscador-section label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-group {
+  max-width: 580px;
+}
+
+.input-group .form-control {
+  border: 1.5px solid #dde0e8;
+  border-radius: 8px 0 0 8px !important;
+  font-size: 14px;
+  padding: 10px 16px;
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+.input-group .form-control:focus {
+  border-color: var(--dark);
+  box-shadow: none;
+  outline: none;
+}
+
+.input-group .btn {
+  background: var(--dark);
+  color: var(--white);
+  border-radius: 0 8px 8px 0 !important;
+  font-size: 14px;
+  padding: 10px 18px;
+  border: none;
+  transition: background 0.2s;
+}
+
+.input-group .btn:hover {
+  background: var(--accent);
+}
+
+/* ===== GRID DE TARJETAS ===== */
+#contenedorMascotas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+  padding-bottom: 48px;
+}
+
+/* ===== TARJETA ===== */
+.animal-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  position: relative;
+}
+
+.animal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(26,26,46,0.16);
+}
+
+.animal-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.animal-card:hover img {
+  transform: scale(1.04);
+}
+
+/* Badge de especie */
+.animal-card .badge-especie {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.animal-card-body {
+  padding: 18px;
+}
+
+.animal-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.animal-card p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+/* Botón de adoptar en tarjeta */
+.btn-adoptar {
+  display: block;
+  background: var(--dark);
+  color: var(--white);
+  text-align: center;
+  padding: 9px 0;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-adoptar:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+.empty-state .icon {
+  font-size: 56px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.empty-state p {
+  font-size: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 576px) {
+  .page-header h1 { font-size: 22px; }
+  #contenedorMascotas { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+
+@media (max-width: 400px) {
+  #contenedorMascotas { grid-template-columns: 1fr; }
+}

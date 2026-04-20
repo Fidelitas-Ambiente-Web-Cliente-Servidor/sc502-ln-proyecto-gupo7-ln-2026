@@ -1,113 +1,118 @@
-/* ===== GENERAL ===== */
-body {
-  background: linear-gradient(135deg, #eef2f7, #e3e9f0);
-  font-family: 'Segoe UI', sans-serif;
+body{
+    margin: 0;
+    background: #f4f6f9;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2c3e50;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-  background: linear-gradient(90deg, #1a1a2e, #16213e);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+/* ===================== */
+/* NAVBAR */
+/* ===================== */
+.navbar{
+    background: #2c3e50 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.navbar-brand {
-  font-weight: bold;
-  color: #fff !important;
+.navbar-brand{
+    color: #ffffff !important;
+    font-weight: 700;
 }
 
-/* ===== TITULO ===== */
-.titulo {
-  text-align: center;
-  margin: 120px auto 30px;
+/* ===================== */
+/* TITULO */
+/* ===================== */
+.titulo{
+    text-align: center;
+    margin: 120px auto 35px;
 }
 
-.titulo h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1a1a2e;
+.titulo h2{
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2c3e50;
 }
 
-.titulo p {
-  color: #6b7280;
-  font-size: 1rem;
+.titulo p{
+    color: #6b7280;
+    font-size: 1rem;
 }
 
-/* ===== GRID ===== */
-.tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-  padding: 20px 60px;
-}
-
-/* ===== TARJETA ===== */
-.tarjeta {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-/* línea decorativa */
-.tarjeta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 5px;
-  width: 100%;
-}
-
-/* hover */
-.tarjeta:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-/* icono */
-.tarjeta .icono {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-/* numero */
-.tarjeta .numero {
-  font-size: 2.7rem;
-  font-weight: bold;
-}
-
-/* label */
-.tarjeta .label {
-  color: #888;
-  font-size: 0.95rem;
-  margin-top: 5px;
-}
-
-/* detalle extra */
-.tarjeta .detalle {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: #555;
-}
-
-/* ===== COLORES ===== */
-.verde::before { background: #27ae60; }
-.azul::before { background: #2980b9; }
-.naranja::before { background: #e67e22; }
-.morado::before { background: #8e44ad; }
-
-.verde .numero { color: #27ae60; }
-.azul .numero { color: #2980b9; }
-.naranja .numero { color: #e67e22; }
-.morado .numero { color: #8e44ad; }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-  .tarjetas {
+/* ===================== */
+/* CONTENEDOR PRINCIPAL */
+/* ===================== */
+.tarjetas{
+    max-width: 900px;
+    margin: auto;
     padding: 20px;
-  }
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
+
+/* ===================== */
+/* TARJETA FORMATO LISTA */
+/* ===================== */
+.tarjeta{
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #2c3e50;
+    transition: 0.25s ease;
+    text-decoration: none;
+}
+
+/* HOVER ELEGANTE */
+.tarjeta:hover{
+    transform: translateX(6px);
+    background: #f9fafb;
+}
+
+/* ===================== */
+/* ICONO */
+/* ===================== */
+.icono{
+    font-size: 1.8rem;
+    width: 50px;
+    text-align: center;
+}
+
+/* ===================== */
+/* TEXTO INTERNO */
+/* ===================== */
+.info-card{
+    display: flex;
+    flex-direction: column;
+}
+
+.numero{
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+.label{
+    font-weight: 600;
+    color: #34495e;
+}
+
+.detalle{
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* ===================== */
+/* COLORES SOLO ACENTO (BORDE + ICONO) */
+/* ===================== */
+.verde{ border-left-color: #16a34a; }
+.azul{ border-left-color: #2563eb; }
+.naranja{ border-left-color: #f59e0b; }
+.morado{ border-left-color: #7c3aed; }
+
+.verde .icono{ color:#16a34a; }
+.azul .icono{ color:#2563eb; }
+.naranja .icono{ color:#f59e0b; }
+.morado .icono{ color:#7c3aed; }

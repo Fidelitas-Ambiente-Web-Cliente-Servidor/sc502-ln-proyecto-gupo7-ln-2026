@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Estadísticas | Vida Rescate</title>
 
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- TU CSS NUEVO -->
 <link rel="stylesheet" href="css/estadisticas.css">
 </head>
 
@@ -17,15 +14,11 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand">Vida Rescate Atenas</a>
+    <a class="navbar-brand fw-bold">Vida Rescate Atenas</a>
 
     <div class="ms-auto">
-      <a href="principal.html" class="btn btn-secondary me-2">
-        ⬅ Volver
-      </a>
-      <button class="btn btn-danger" onclick="cerrarSesion()">
-        Cerrar Sesión
-      </button>
+      <a href="principal.html" class="btn btn-secondary me-2">⬅ Volver</a>
+      <button class="btn btn-danger" onclick="cerrarSesion()">Cerrar Sesión</button>
     </div>
   </div>
 </nav>
@@ -33,39 +26,51 @@
 <!-- TITULO -->
 <div class="titulo">
     <h2>📊 Estadísticas</h2>
-    <p>Resumen general de la plataforma</p>
+    <p>Resumen general del sistema de rescate animal</p>
 </div>
 
-<!-- TARJETAS -->
+<!-- TARJETAS (FORMATO LISTA FORMAL) -->
 <div class="tarjetas">
 
-    <a href="adopcioneslista.php" class="tarjeta verde" style="text-decoration:none; color:inherit;">
+    <a href="adopcioneslista.php" class="tarjeta verde">
         <div class="icono">🐾</div>
-        <div class="numero" id="totalAdopciones">0</div>
-        <div class="label">Adopciones</div>
-        <div class="detalle">Mascotas que encontraron hogar ❤️</div>
+
+        <div class="info-card">
+            <div class="numero" id="totalAdopciones">0</div>
+            <div class="label">Adopciones</div>
+            <div class="detalle">Mascotas que encontraron hogar</div>
+        </div>
     </a>
 
-    <a href="donacioneslista.php" class="tarjeta azul" style="text-decoration:none; color:inherit;">
+    <a href="donacioneslista.php" class="tarjeta azul">
         <div class="icono">💰</div>
-        <div class="numero" id="totalDonaciones">0</div>
-        <div class="label">Donaciones</div>
-        <div class="detalle">Total recaudado ₡</div>
+
+        <div class="info-card">
+            <div class="numero" id="totalDonaciones">0</div>
+            <div class="label">Donaciones</div>
+            <div class="detalle">Total recaudado en el sistema</div>
+        </div>
     </a>
 
-    <a href="voluntarioslista.php" class="tarjeta naranja" style="text-decoration:none; color:inherit;">
+    <a href="voluntarioslista.php" class="tarjeta naranja">
         <div class="icono">🙋</div>
-        <div class="numero" id="totalVoluntarios">0</div>
-        <div class="label">Voluntarios</div>
-        <div class="detalle">Personas ayudando activamente</div>
+
+        <div class="info-card">
+            <div class="numero" id="totalVoluntarios">0</div>
+            <div class="label">Voluntarios</div>
+            <div class="detalle">Personas ayudando activamente</div>
+        </div>
     </a>
 
-    <a href="eventoslista.php" class="tarjeta morado" style="text-decoration:none; color:inherit;">
+    <a href="eventoslista.php" class="tarjeta morado">
         <div class="icono">📅</div>
-        <div class="numero" id="totalEventos">0</div>
-        <div class="label">Eventos</div>
-        <div class="detalle">Actividades organizadas</div>
-   </a>
+
+        <div class="info-card">
+            <div class="numero" id="totalEventos">0</div>
+            <div class="label">Eventos</div>
+            <div class="detalle">Actividades organizadas</div>
+        </div>
+    </a>
 
 </div>
 

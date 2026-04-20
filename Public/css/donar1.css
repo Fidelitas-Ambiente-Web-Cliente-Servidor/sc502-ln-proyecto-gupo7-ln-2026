@@ -3,7 +3,6 @@ body{
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* HERO */
 .hero-donaciones{
     margin-top: 100px;
     text-align: center;
@@ -21,7 +20,6 @@ body{
     font-size: 1.1rem;
 }
 
-/* IMPACTO */
 .impacto{
     max-width: 1000px;
     margin: auto;
@@ -46,7 +44,6 @@ body{
     font-weight: 700;
 }
 
-/* CARDS */
 .info{
     max-width: 1000px;
     margin: auto;
@@ -69,7 +66,6 @@ body{
     transform: translateY(-8px);
 }
 
-/* IMAGEN */
 .img-box{
     position: relative;
     height: 200px;
@@ -103,7 +99,6 @@ body{
     opacity: 1;
 }
 
-/* FOOTER */
 .footer{
     background: #2c3e50;
     color: white;

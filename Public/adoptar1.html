@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adoptar | Vida Rescate</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- TU CSS -->
   <link rel="stylesheet" href="css/adoptar1.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">Vida Rescate Atenas</a>
@@ -35,7 +32,6 @@
   </div>
 </nav>
 
-<!-- ENCABEZADO -->
 <section class="page-header">
   <div class="container d-flex justify-content-between align-items-center flex-wrap">
     <div>
@@ -49,7 +45,6 @@
   </div>
 </section>
 
-<!-- BUSCADOR -->
 <div class="container">
   <div class="buscador-section text-center">
     <h2>Buscar por nombre</h2>
@@ -62,22 +57,18 @@
   </div>
 </div>
 
-<!-- TARJETAS DINÁMICAS -->
 <div class="container animales-section">
   <p class="section-label">Animales disponibles</p>
 
   <div class="animales-grid" id="contenedorMascotas"></div>
 </div>
 
-
-<!-- 🔥 JS COMPLETO -->
 <script>
 const input = document.getElementById("buscarRaza");
 const btnBuscar = document.getElementById("btnBuscar");
 const btnTodas = document.getElementById("btnTodas");
 const contenedor = document.getElementById("contenedorMascotas");
 
-// 🔥 cargar todas al entrar
 function cargarMascotas() {
   fetch("listar_mascotas.php")
     .then(res => res.text())
@@ -89,7 +80,6 @@ function cargarMascotas() {
     });
 }
 
-// 🔍 buscar por nombre
 btnBuscar.addEventListener("click", () => {
   const valor = input.value;
 
@@ -100,13 +90,11 @@ btnBuscar.addEventListener("click", () => {
     });
 });
 
-// 🔄 ver todas
 btnTodas.addEventListener("click", () => {
   input.value = "";
   cargarMascotas();
 });
 
-// 🚀 ejecutar al abrir
 window.onload = cargarMascotas;
 </script>
 

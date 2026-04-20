@@ -1,10 +1,8 @@
-/* ===== GENERAL ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f4f6f8;
 }
 
-/* ===== NAVBAR ===== */
 .navbar {
   background-color: #1a1a2e !important;
   padding: 12px 0;
@@ -24,7 +22,6 @@ body {
   color: #fff !important;
 }
 
-/* ===== HEADER ===== */
 .page-header {
   margin-top: 70px;
   background: white;
@@ -44,7 +41,6 @@ body {
   text-decoration: none;
 }
 
-/* ===== BUSCADOR ===== */
 .buscador-section {
   background: white;
   padding: 20px;
@@ -56,14 +52,12 @@ body {
   max-width: 600px;
 }
 
-/* ===== GRID ===== */
 #contenedorMascotas {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 20px;
 }
 
-/* ===== TARJETA ===== */
 .animal-card {
   background: white;
   border-radius: 12px;

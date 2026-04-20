@@ -3,7 +3,6 @@ body{
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* FORM CARD */
 .card-formulario{
     background: white;
     width: 420px;
@@ -14,7 +13,6 @@ body{
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* TITULO */
 .card-formulario h2{
     color: #2c3e50;
     font-weight: 700;
@@ -29,14 +27,12 @@ body{
     margin-bottom: 25px;
 }
 
-/* LABEL */
 label{
     font-weight: 600;
     color: #2c3e50;
     margin-bottom: 5px;
 }
 
-/* INPUTS */
 input, textarea{
     width: 100%;
     padding: 10px;
@@ -51,7 +47,6 @@ input:focus, textarea:focus{
     box-shadow: 0 0 8px rgba(44,62,80,0.3);
 }
 
-/* BOTON */
 button{
     width: 100%;
     padding: 12px;
@@ -69,7 +64,6 @@ button:hover{
     transform: scale(1.03);
 }
 
-/* ANIMACION */
 @keyframes fadeIn{
     from{
         opacity: 0;

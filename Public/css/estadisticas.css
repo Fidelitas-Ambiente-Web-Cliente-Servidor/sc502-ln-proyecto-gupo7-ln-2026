@@ -5,9 +5,6 @@ body{
     color: #2c3e50;
 }
 
-/* ===================== */
-/* NAVBAR */
-/* ===================== */
 .navbar{
     background: #2c3e50 !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -18,9 +15,6 @@ body{
     font-weight: 700;
 }
 
-/* ===================== */
-/* TITULO */
-/* ===================== */
 .titulo{
     text-align: center;
     margin: 120px auto 35px;
@@ -37,9 +31,6 @@ body{
     font-size: 1rem;
 }
 
-/* ===================== */
-/* CONTENEDOR PRINCIPAL */
-/* ===================== */
 .tarjetas{
     max-width: 900px;
     margin: auto;
@@ -49,9 +40,6 @@ body{
     gap: 15px;
 }
 
-/* ===================== */
-/* TARJETA FORMATO LISTA */
-/* ===================== */
 .tarjeta{
     background: #ffffff;
     border-radius: 14px;
@@ -65,24 +53,17 @@ body{
     text-decoration: none;
 }
 
-/* HOVER ELEGANTE */
 .tarjeta:hover{
     transform: translateX(6px);
     background: #f9fafb;
 }
 
-/* ===================== */
-/* ICONO */
-/* ===================== */
 .icono{
     font-size: 1.8rem;
     width: 50px;
     text-align: center;
 }
 
-/* ===================== */
-/* TEXTO INTERNO */
-/* ===================== */
 .info-card{
     display: flex;
     flex-direction: column;
@@ -104,9 +85,6 @@ body{
     color: #6b7280;
 }
 
-/* ===================== */
-/* COLORES SOLO ACENTO (BORDE + ICONO) */
-/* ===================== */
 .verde{ border-left-color: #16a34a; }
 .azul{ border-left-color: #2563eb; }
 .naranja{ border-left-color: #f59e0b; }

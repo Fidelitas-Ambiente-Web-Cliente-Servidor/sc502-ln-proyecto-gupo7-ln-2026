@@ -4,12 +4,10 @@ body{
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* NAV */
 .navbar{
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* CONTENEDOR PRINCIPAL */
 .secciones{
     max-width: 1100px;
     margin: 120px auto 60px;
@@ -19,16 +17,12 @@ body{
     padding: 0 20px;
 }
 
-/* RESPONSIVE */
 @media(max-width: 900px){
     .secciones{
         grid-template-columns: 1fr;
     }
 }
 
-/* ===================== */
-/* DESCRIPCIÓN IZQUIERDA */
-/* ===================== */
 .descripcion{
     background: white;
     border-radius: 18px;
@@ -61,9 +55,6 @@ body{
     line-height: 1.6;
 }
 
-/* ===================== */
-/* FORMULARIO DERECHA */
-/* ===================== */
 .form-voluntariado{
     background: white;
     border-radius: 18px;
@@ -72,7 +63,6 @@ body{
     border-top: 4px solid #2a5298;
 }
 
-/* TITULOS */
 .form-voluntariado h2{
     text-align: center;
     color: #2a5298;
@@ -86,7 +76,6 @@ body{
     margin-bottom: 20px;
 }
 
-/* LABELS */
 label{
     display: block;
     margin-top: 10px;
@@ -94,7 +83,6 @@ label{
     color: #2a5298;
 }
 
-/* INPUTS */
 input{
     width: 100%;
     padding: 10px;
@@ -110,7 +98,6 @@ input:focus{
     outline: none;
 }
 
-/* BOTON */
 button{
     width: 100%;
     margin-top: 20px;
@@ -129,7 +116,6 @@ button:hover{
     transform: scale(1.03);
 }
 
-/* ERRORES */
 .error{
     color: #e74c3c;
     font-size: 0.85rem;

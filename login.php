@@ -17,12 +17,10 @@ $usuario = $model->login($email, $password);
 
 if ($usuario) {
 
-    // 🔐 SESIÓN
     $_SESSION["sesionActiva"] = true;
     $_SESSION["nombre"] = $usuario["nombre"];
     $_SESSION["email"] = $usuario["email"];
-    $_SESSION["rol"] = $usuario["rol"]; // 👑 IMPORTANTE
-
+    $_SESSION["rol"] = $usuario["rol"];
     echo json_encode([
         "ok" => true,
         "nombre" => $usuario["nombre"],

@@ -30,48 +30,48 @@
 </div>
 </div>
 </nav>
+<br>
 <body class="container mt-5">
 
-  <h1 class="mb-4 text-center">Registrar nueva mascota</h1>
+  
+<h1 class="text-center mb-4">Registrar Mascota</h1>
 
-  <form action="registrar_mascota.php" method="POST" class="row g-3">
-    <div class="col-md-6">
-      <label class="form-label">Nombre</label>
-      <input type="text" name="nombre" class="form-control" required>
-    </div>
-    <div class="col-md-3">
-      <label class="form-label">Edad (años)</label>
-      <input type="number" name="edad" class="form-control" required>
-    </div>
-    <div class="col-md-3">
-      <label class="form-label">Tamaño</label>
-      <select name="tamano" class="form-select">
-        <option value="Pequeño">Pequeño</option>
-        <option value="Mediano">Mediano</option>
-        <option value="Grande">Grande</option>
-      </select>
-    </div>
-    <div class="col-12">
-      <label class="form-label">Descripción</label>
-      <textarea name="descripcion" class="form-control" rows="2" required></textarea>
-    </div>
-    <div class="col-12">
-      <label class="form-label">Características</label>
-      <textarea name="caracteristicas" class="form-control" rows="2"></textarea>
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Imagen (ruta)</label>
-      <input type="text" name="imagen" class="form-control" placeholder="imagenes/luna.jpg" required>
-    </div>
-    <div class="col-md-6">
-      <label class="form-label">Enlace de adopción</label>
-      <input type="text" name="enlace" class="form-control" value="adoptar2.html">
-    </div>
-    <div class="col-12 text-center">
-      <!-- Botón de enviar -->
-      <button type="submit" class="btn btn-success">Guardar Mascota</button>
-    </div>
-  </form>
+<form action="registrar_mascota.php" method="POST" enctype="multipart/form-data" class="row g-3">
+
+  <div class="col-md-6">
+    <label>Nombre</label>
+    <input type="text" name="nombre" class="form-control" required>
+  </div>
+
+  <div class="col-md-3">
+    <label>Edad</label>
+    <input type="number" name="edad" class="form-control" required>
+  </div>
+
+  <div class="col-md-3">
+    <label>Tamaño</label>
+    <select name="tamano" class="form-select">
+      <option>Pequeño</option>
+      <option>Mediano</option>
+      <option>Grande</option>
+    </select>
+  </div>
+
+  <div class="col-12">
+    <label>Descripción</label>
+    <textarea name="descripcion" class="form-control" required></textarea>
+  </div>
+
+  <div class="col-md-6">
+    <label>Imagen</label>
+<input type="file" name="imagen" class="form-control" required>
+  </div>
+
+  <div class="col-12 text-center">
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </div>
+
+</form>
 
 </body>
 </html>
